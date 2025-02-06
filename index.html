@@ -4,7 +4,7 @@
     <title>Washing Machine Status</title>
     <script>
         async function fetchStatus() {
-            let response = await fetch("https://your-project-id.firebaseio.com/.json");
+            let response = await fetch("https://jarvis-washing-machine.firebaseio.com/.json");
             let data = await response.json();
 
             document.getElementById("machine1").innerText = data.machine1 ? data.machine1.status : "Unknown";
