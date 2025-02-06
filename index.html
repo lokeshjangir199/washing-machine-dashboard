@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Washing Machine Status</title>
+    <script>
+        async function fetchStatus() {
+            let response = await fetch("https://your-project-id.firebaseio.com/.json");
+            let data = await response.json();
+
+            document.getElementById("machine1").innerText = data.machine1 ? data.machine1.status : "Unknown";
+            document.getElementById("machine2").innerText = data.machine2 ? data.machine2.status : "Unknown";
+            document.getElementById("machine3").innerText = data.machine3 ? data.machine3.status : "Unknown";
+        }
+        
+        setInterval(fetchStatus, 5000); // Refresh every 5 seconds
+    </script>
+</head>
+<body>
+    <h1>Washing Machine Status</h1>
+    <p>🟢 Machine 1: <span id="machine1">Loading...</span></p>
+    <p>🟢 Machine 2: <span id="machine2">Loading...</span></p>
+    <p>🟢 Machine 3: <span id="machine3">Loading...</span></p>
+</body>
+</html>
